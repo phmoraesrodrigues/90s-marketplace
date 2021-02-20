@@ -1,3 +1,4 @@
+import "./App.scss";
 import pictureA from './a.jpg';
 import pictureB from './b.jpg';
 
