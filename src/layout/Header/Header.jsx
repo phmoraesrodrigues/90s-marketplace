@@ -1,26 +1,32 @@
 import React from "react";
 import { Link, BrowserRouter as Router } from "react-router-dom";
+import { Layout, Menu } from "antd";
+import { ShoppingCartOutlined } from "@ant-design/icons";
+import "./Header.scss";
+
+const { Header: StyledHeader } = Layout;
 
 const cartItems = () => [];
 
 const Header = () => (
-  <header data-testid="header-wrapper">
-    <div data-testid="header-logo">90s shop</div>
+  <StyledHeader data-testid="header-wrapper" theme="light">
+    <div className="logo">90s Shop</div>
     <Router>
-      <nav data-testid="header-nav">
-        <ul style={{ listStyleType: "none", display: "flex" }}>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          |
-          <li>
-            <Link to="/cart">Cart ({cartItems().length})</Link>
-          </li>
-        </ul>
-      </nav>
+      <Menu
+        data-testid="header-nav"
+        theme="dark"
+        mode="horizontal"
+        defaultSelectedKeys={["home"]}
+      >
+        <Menu.Item key="home" title="Home">
+          <Link to="/">Home</Link>
+        </Menu.Item>
+        <Menu.Item key="cart" title="Cart" icon={<ShoppingCartOutlined />}>
+          <Link to="/cart">Cart ({cartItems().length})</Link>
+        </Menu.Item>
+      </Menu>
     </Router>
-    <hr />
-  </header>
+  </StyledHeader>
 );
 
 export default Header;

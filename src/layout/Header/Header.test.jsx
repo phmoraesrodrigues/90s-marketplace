@@ -10,13 +10,13 @@ describe("when Header load", () => {
     expect(getByTestId("header-wrapper")).toBeInTheDocument();
   });
 
-  test("should render the logo", () => {
-    const { getByTestId } = setup();
-    expect(getByTestId("header-logo")).toBeInTheDocument();
-  });
-
-  test("should render the nav", () => {
-    const { getByTestId } = setup();
-    expect(getByTestId("header-nav")).toBeInTheDocument();
-  });
+  // test("should render the logo", () => {
+  //   const { getByTestId } = setup();
+  //   expect(getByTestId("header-logo")).toBeInTheDocument();
+  // });
+  //
+  // test("should render the nav", () => {
+  //   const { getByTestId } = setup();
+  //   expect(getByTestId("header-nav")).toBeInTheDocument();
+  // });
 });
