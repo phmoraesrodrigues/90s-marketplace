@@ -1,8 +1,5 @@
 import React from "react";
-
 import "./App.scss";
-import pictureA from "./a.jpg";
-import pictureB from "./b.jpg";
 
 function cartItems() {
   return [];
@@ -42,28 +39,18 @@ function App() {
         <div>
           <h1>Product B</h1>
           <p>Price: 30 USD</p>
-
           <button onClick={() => console.warn("Not implemented!")}>
             Add to cart
           </button>
-
-          <div>
-            <img src={pictureB} width={640} />
-          </div>
         </div>
       )}
       {window.location.pathname === "/products/a" && (
         <div>
           <h1>Product A</h1>
           <p>Price: 10 USD</p>
-
           <button onClick={() => console.warn("Not implemented!")}>
             Add to cart
           </button>
-
-          <div>
-            <img src={pictureA} width={640} />
-          </div>
         </div>
       )}
       {window.location.pathname === "/cart" && (
