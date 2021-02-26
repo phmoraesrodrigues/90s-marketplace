@@ -1,9 +1,9 @@
-import "./App.scss";
+import './App.scss';
 import pictureA from './a.jpg';
 import pictureB from './b.jpg';
 
 function cartItems() {
-  return []
+  return [];
 }
 
 function App() {
@@ -12,13 +12,19 @@ function App() {
       <header>
         90s shop
         <nav>
-          <ul style={{listStyleType: 'none', display: 'flex'}}>
+          <ul style={{ listStyleType: 'none', display: 'flex' }}>
             <li><a href="/">Home</a></li>
             |
-            <li><a href="/cart">Cart ({cartItems().length})</a></li>
+            <li>
+              <a href="/cart">
+                Cart (
+                {cartItems().length}
+                )
+              </a>
+            </li>
           </ul>
         </nav>
-        <hr/>
+        <hr />
       </header>
 
       {
@@ -27,11 +33,17 @@ function App() {
             Welcome to our shop!
 
             <p>
-              You are probably interested in <a href="/products/a">A</a>.
+              You are probably interested in
+              {' '}
+              <a href="/products/a">A</a>
+              .
             </p>
 
             <p>
-              Check out the newest product <a href="/products/b">B</a>!
+              Check out the newest product
+              {' '}
+              <a href="/products/b">B</a>
+              !
             </p>
           </div>
         )
@@ -46,7 +58,7 @@ function App() {
               Add to cart
             </button>
 
-            <div><img src={pictureB} width={640}/></div>
+            <div><img src={pictureB} width={640} /></div>
           </div>
         )
       }
@@ -60,7 +72,7 @@ function App() {
               Add to cart
             </button>
 
-            <div><img src={pictureA} width={640}/></div>
+            <div><img src={pictureA} width={640} /></div>
           </div>
         )
       }
