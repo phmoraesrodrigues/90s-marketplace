@@ -1,4 +1,6 @@
 import React from "react";
+import Header from "./layout/Header";
+import Footer from "./layout/Footer";
 import "./App.scss";
 
 function cartItems() {
@@ -7,23 +9,8 @@ function cartItems() {
 
 function App() {
   return (
-    <main>
-      <header>
-        90s shop
-        <nav>
-          <ul style={{ listStyleType: "none", display: "flex" }}>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            |
-            <li>
-              <a href="/cart">Cart ({cartItems().length})</a>
-            </li>
-          </ul>
-        </nav>
-        <hr />
-      </header>
-
+    <main data-testid="app-wrapper">
+      <Header />
       {window.location.pathname === "/" && (
         <div>
           Welcome to our shop!
@@ -63,6 +50,7 @@ function App() {
           </ul>
         </div>
       )}
+      <Footer />
     </main>
   );
 }
