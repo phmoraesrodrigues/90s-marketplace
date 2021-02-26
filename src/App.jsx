@@ -1,58 +1,32 @@
 import React from "react";
-import Header from "./layout/Header";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import Footer from "./layout/Footer";
+import Header from "./layout/Header";
+import Cart from "./pages/Cart";
+import Home from "./pages/Home";
+import Product from "./pages/Product";
 import "./App.scss";
 
-function cartItems() {
-  return [];
-}
-
-function App() {
+const App = () => {
   return (
-    <main data-testid="app-wrapper">
-      <Header />
-      {window.location.pathname === "/" && (
-        <div>
-          Welcome to our shop!
-          <p>
-            You are probably interested in <a href="/products/a">A</a>.
-          </p>
-          <p>
-            Check out the newest product <a href="/products/b">B</a>!
-          </p>
-        </div>
-      )}
-      {window.location.pathname === "/products/b" && (
-        <div>
-          <h1>Product B</h1>
-          <p>Price: 30 USD</p>
-          <button onClick={() => console.warn("Not implemented!")}>
-            Add to cart
-          </button>
-        </div>
-      )}
-      {window.location.pathname === "/products/a" && (
-        <div>
-          <h1>Product A</h1>
-          <p>Price: 10 USD</p>
-          <button onClick={() => console.warn("Not implemented!")}>
-            Add to cart
-          </button>
-        </div>
-      )}
-      {window.location.pathname === "/cart" && (
-        <div>
-          Are you ready to purchase these?
-          <ul>
-            {cartItems().map((cartItem) => (
-              <li key={cartItem}>{cartItem}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-      <Footer />
-    </main>
+    <Router>
+      <main data-testid="app-wrapper">
+        <Header />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/product">
+            <Product />
+          </Route>
+          <Route path="/cart">
+            <Cart />
+          </Route>
+        </Switch>
+        <Footer />
+      </main>
+    </Router>
   );
-}
+};
 
 export default App;
