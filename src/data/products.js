@@ -1,9 +1,9 @@
-import picFerrari from "./assets/images/ferrari.jpg";
-import picMercedes from "./assets/images/mercedes.jpg";
-import picMclaren from "./assets/images/mclaren.jpg";
-import picPorsche from "./assets/images/porsche.jpg";
+import picFerrari from "../assets/images/ferrari.jpg";
+import picMercedes from "../assets/images/mercedes.jpg";
+import picMclaren from "../assets/images/mclaren.jpg";
+import picPorsche from "../assets/images/porsche.jpg";
 
-export const products = [
+const products = [
   {
     id: 1,
     uid: "ferrari",
@@ -33,3 +33,5 @@ export const products = [
     picture: picPorsche,
   },
 ];
+
+export default products;
