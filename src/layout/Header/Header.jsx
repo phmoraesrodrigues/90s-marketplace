@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const cartItems = () => [];
 
@@ -8,11 +9,11 @@ const Header = () => (
     <nav data-testid="header-nav">
       <ul style={{ listStyleType: "none", display: "flex" }}>
         <li>
-          <a href="/">Home</a>
+          <Link to="/">Home</Link>
         </li>
         |
         <li>
-          <a href="/cart">Cart ({cartItems().length})</a>
+          <Link to="/cart">Cart ({cartItems().length})</Link>
         </li>
       </ul>
     </nav>
