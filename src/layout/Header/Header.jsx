@@ -10,7 +10,7 @@ const cartItems = () => [];
 
 const Header = () => (
   <StyledHeader data-testid="header-wrapper" theme="light">
-    <div className="logo">90s Shop</div>
+    <div className="header-logo">90s Shop</div>
     <Router>
       <Menu
         data-testid="header-nav"
