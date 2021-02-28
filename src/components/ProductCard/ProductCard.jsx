@@ -1,6 +1,34 @@
 import React from "react";
-import { Card } from "antd";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import { PlusSquareOutlined } from "@ant-design/icons";
+import { Button, Card, Space } from "antd";
+import { currencyFormat } from "../../utils/numberUtil";
 
-const ProductCard = () => <Card data-testid="product.card-wrapper" />;
+const ProductCard = ({ uid, name, price, picture }) => (
+  <Card
+    data-testid="product.card-wrapper"
+    cover={<img data-testid="product.card-cover" alt={name} src={picture} />}
+  >
+    <h3 data-testid="product.card-name">{name}</h3>
+    <p>
+      Price: <em data-testid="product.card-price">{currencyFormat(price)}</em>
+    </p>
+    <Space>
+      <Link to={`/product/${uid}`}>
+        <Button block type="primary" icon={<PlusSquareOutlined />}>
+          View Details
+        </Button>
+      </Link>
+    </Space>
+  </Card>
+);
+
+ProductCard.propTypes = {
+  uid: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  picture: PropTypes.string.isRequired,
+};
 
 export default ProductCard;
