@@ -12,7 +12,7 @@ const Content = () => (
   <StyledContent data-testid="content-wrapper" className="content-wrapper">
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route path="/product" component={Product} />
+      <Route path="/product/:id" component={Product} />
       <Route path="/cart" component={Cart} />
     </Switch>
   </StyledContent>
