@@ -4,6 +4,7 @@ import { Layout } from "antd";
 import Home from "../../pages/Home";
 import Product from "../../pages/Product";
 import Cart from "../../pages/Cart";
+import NotFound from "../../pages/NotFound";
 import "./Content.scss";
 
 const { Content: StyledContent } = Layout;
@@ -14,6 +15,7 @@ const Content = () => (
       <Route exact path="/" component={Home} />
       <Route path="/product/:id" component={Product} />
       <Route path="/cart" component={Cart} />
+      <Route path="*" component={NotFound} />
     </Switch>
   </StyledContent>
 );
