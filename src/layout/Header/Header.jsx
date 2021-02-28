@@ -13,7 +13,12 @@ const Header = () => (
     <div data-testid="header-logo" className="header-logo">
       90s Shop
     </div>
-    <Menu data-testid="header-nav" theme="dark" mode="horizontal">
+    <Menu
+      data-testid="header-nav"
+      theme="dark"
+      selectable={false}
+      mode="horizontal"
+    >
       <Menu.Item key="home" title="Home">
         <Link to="/">Home</Link>
       </Menu.Item>
