@@ -8,6 +8,7 @@ const defaultProduct = {
   id: 1,
   uid: "product",
   name: "Product",
+  description: "Description",
   price: 15,
   picture: "about:blank",
 };
