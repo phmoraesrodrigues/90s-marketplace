@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { PlusSquareOutlined } from "@ant-design/icons";
-import { Button, Card, Space } from "antd";
+import { Button, Card } from "antd";
 import { currencyFormat } from "../../utils/numberUtil";
 
 const ProductCard = ({ uid, name, price, picture }) => (
@@ -14,13 +14,11 @@ const ProductCard = ({ uid, name, price, picture }) => (
     <p>
       Price: <em data-testid="product.card-price">{currencyFormat(price)}</em>
     </p>
-    <Space>
-      <Link to={`/product/${uid}`}>
-        <Button block type="primary" icon={<PlusSquareOutlined />}>
-          View Details
-        </Button>
-      </Link>
-    </Space>
+    <Link to={`/product/${uid}`}>
+      <Button block type="primary" icon={<PlusSquareOutlined />}>
+        View details
+      </Button>
+    </Link>
   </Card>
 );
 
