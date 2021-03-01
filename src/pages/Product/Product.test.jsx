@@ -1,7 +1,9 @@
 import React from "react";
 import { render } from "@testing-library/react";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
 import { Route, Switch, MemoryRouter } from "react-router-dom";
-
+import rootReducer from "../../store/reducers";
 import Product from "./Product";
 import products from "../../data/products";
 import { currencyFormat } from "../../utils/numberUtil";
@@ -15,14 +17,25 @@ const defaultProduct = (products.length && { ...products[0] }) || {
   picture: "about:blank",
 };
 
-const setup = () =>
-  render(
-    <MemoryRouter initialEntries={[`/product/${defaultProduct.uid}`]}>
-      <Switch>
-        <Route path="/product/:id" component={Product} />
-      </Switch>
-    </MemoryRouter>
+const initialState = {
+  cart: {
+    items: [defaultProduct.id],
+  },
+};
+
+const setup = () => {
+  const store = createStore(rootReducer, initialState);
+
+  return render(
+    <Provider store={store}>
+      <MemoryRouter initialEntries={[`/product/${defaultProduct.uid}`]}>
+        <Switch>
+          <Route path="/product/:id" component={Product} />
+        </Switch>
+      </MemoryRouter>
+    </Provider>
   );
+};
 
 describe("when Product load", () => {
   test("should render the wrapper", () => {
