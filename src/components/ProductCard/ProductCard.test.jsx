@@ -3,8 +3,9 @@ import { render } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import { currencyFormat } from "../../utils/numberUtil";
+import products from "../../data/products";
 
-const defaultProduct = {
+const defaultProduct = (products.length && { ...products[0] }) || {
   id: 1,
   uid: "product",
   name: "Product",
